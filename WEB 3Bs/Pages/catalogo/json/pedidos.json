@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1001,
+    "fecha": "2025-10-28",
+    "estado": "Pendiente",
+    "total": 720,
+    "items": [
+      { "nombre": "Blusa Floral", "cantidad": 1, "precio": 250, "imagen": "img/blusa1.jpg" },
+      { "nombre": "Pantalón Casual", "cantidad": 1, "precio": 470, "imagen": "img/pantalon1.jpg" }
+    ]
+  },
+  {
+    "id": 1002,
+    "fecha": "2025-10-15",
+    "estado": "Entregado",
+    "total": 1290,
+    "items": [
+      { "nombre": "Vestido Rojo", "cantidad": 1, "precio": 800, "imagen": "img/vestido1.jpg" },
+      { "nombre": "Bolso Negro", "cantidad": 1, "precio": 490, "imagen": "img/bolso1.jpg" }
+    ]
+  }
+]

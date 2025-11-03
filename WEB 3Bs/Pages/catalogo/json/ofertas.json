@@ -1,0 +1,23 @@
+[
+  {
+    "nombre": "Blusa Floral",
+    "descripcion": "Ideal para días soleados, tela ligera y cómoda.",
+    "precio_normal": 300,
+    "precio_oferta": 220,
+    "imagen": "img/oferta1.jpg"
+  },
+  {
+    "nombre": "Jeans Skinny",
+    "descripcion": "Corte moderno, perfecto para combinar con cualquier look.",
+    "precio_normal": 550,
+    "precio_oferta": 420,
+    "imagen": "img/oferta2.jpg"
+  },
+  {
+    "nombre": "Vestido Casual",
+    "descripcion": "Fresco, juvenil y con estampado floral.",
+    "precio_normal": 600,
+    "precio_oferta": 480,
+    "imagen": "img/oferta3.jpg"
+  }
+]
