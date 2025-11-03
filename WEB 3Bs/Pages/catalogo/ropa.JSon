@@ -1,0 +1,39 @@
+[
+  {
+    "nombre": "Camisa Casual Hombre",
+    "descripcion": "Camisa de algodón con corte moderno y ligera.",
+    "precio": 124.99,
+    "imagen": "https://images.unsplash.com/photo-1521335629791-ce4aec67dd47"
+  },
+  {
+    "nombre": "Vestido Floral Mujer",
+    "descripcion": "Vestido fresco ideal para primavera y verano.",
+    "precio": 95.00,
+    "imagen": "https://images.unsplash.com/photo-1520975922223-7da754f0441a"
+  },
+  {
+    "nombre": "Jeans Azul Clásico",
+    "descripcion": "Pantalón de mezclilla azul ajustado de alta calidad.",
+    "precio": 599.50,
+    "imagen": "https://images.unsplash.com/photo-1584378868076-2eb9994c2e8d"
+  },
+  {
+    "nombre": "Sudadera Unisex",
+    "descripcion": "Sudadera cómoda de algodón con capucha.",
+    "precio": 125.00,
+    "imagen": "https://images.unsplash.com/photo-1600180758890-6b94519a8ba5"
+  },
+  {
+    "nombre": "Cwasod de Cuero",
+    "descripcion": "Chaqueta elegante y resistente para cualquier ocasión.",
+    "precio": 119.99,
+    "imagen": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
+  },
+  {
+    "nombre": "Falda waos Plisada",
+    "descripcion": "Falda ligera y elegante con diseño plisado.",
+    "precio": 99.99,
+    "imagen": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c"
+  }
+  
+]
