@@ -71,58 +71,8 @@
 </head>
 
 <body>
-
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <!-- Logo Izquierdo -->
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="Img/logo.png" alt="Logo 3Bs" width="40" height="40" class="me-2">
-                <h1 class="text-uppercase fw-bold" style="color: var(--color-secundario);">Tienda 3Bs</h1>
-            </a>
-
-            <!-- Botón colapsable -->
-            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Opciones de menú -->
-            <div class="collapse navbar-collapse" id="navbarMenu">
-                <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="mujerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Mujer
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Ropa Casual</a></li>
-                            <li><a class="dropdown-item" href="#">Ropa Deportiva</a></li>
-                            <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="hombreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Hombre
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Camisas</a></li>
-                            <li><a class="dropdown-item" href="#">Pantalones</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#">Pedidos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Administrar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Informacion</a></li>
-
-                    <!-- Ícono de sesión -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-session" title="Iniciar sesión">
-                            <i class="bi bi-person-circle"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!--NAVBAR-->
+    <div id="navbar"></div>
 
     <!-- CONTENIDO PRINCIPAL -->
     <main class="container my-5 text-center">
@@ -142,5 +92,23 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("navbar").innerHTML = data;
+
+                // Resalta el enlace activo según la URL actual
+                const current = window.location.pathname.split("/").pop();
+                document.querySelectorAll(".nav-link").forEach(link => {
+                    if (link.getAttribute("href") === current) {
+                        link.classList.add("active");
+                    }
+                });
+            });
+    });
+    </script>
+
 </body>
 </html>
