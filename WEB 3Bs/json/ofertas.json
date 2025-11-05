@@ -1,23 +1,23 @@
 [
   {
-    "nombre": "Blusa Floral",
-    "descripcion": "Ideal para días soleados, tela ligera y cómoda.",
+    "nombre": "conjunto de 3 playeras deportivas",
+    "descripcion": " 3 playeras deportivas a eleccion de marcas variadas",
     "precio_normal": 300,
     "precio_oferta": 220,
-    "imagen": "img/oferta1.jpg"
+    "imagen": "img/3dep.jpeg"
   },
   {
-    "nombre": "Jeans Skinny",
-    "descripcion": "Corte moderno, perfecto para combinar con cualquier look.",
+    "nombre": "sudaderas surtidas",
+    "descripcion": "2 sudaderas a eleccion surtidas de area seleccionada marca multiple",
     "precio_normal": 550,
     "precio_oferta": 420,
-    "imagen": "img/oferta2.jpg"
+    "imagen": "img/2.jpeg"
   },
   {
-    "nombre": "Vestido Casual",
-    "descripcion": "Fresco, juvenil y con estampado floral.",
+    "nombre": "conjunto de invierno",
+    "descripcion": "paquete surtido  de ropa invernal marcas y tallas variadas",
     "precio_normal": 600,
     "precio_oferta": 480,
-    "imagen": "img/oferta3.jpg"
+    "imagen": "img/invierno.jpeg"
   }
 ]

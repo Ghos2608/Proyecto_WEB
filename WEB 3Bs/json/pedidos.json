@@ -5,8 +5,8 @@
     "estado": "Pendiente",
     "total": 720,
     "items": [
-      { "nombre": "Blusa Floral", "cantidad": 1, "precio": 250, "imagen": "img/blusa1.jpg" },
-      { "nombre": "Pantalón Casual", "cantidad": 1, "precio": 470, "imagen": "img/pantalon1.jpg" }
+      { "nombre": "camisa Nike", "cantidad": 1, "precio": 150, "imagen": "img/rayas.jpeg" },
+      { "nombre": "Pantalón Casual", "cantidad": 1, "precio": 170, "imagen": "img/pantalon28.jpeg" }
     ]
   },
   {
@@ -15,8 +15,8 @@
     "estado": "Entregado",
     "total": 1290,
     "items": [
-      { "nombre": "Vestido Rojo", "cantidad": 1, "precio": 800, "imagen": "img/vestido1.jpg" },
-      { "nombre": "Bolso Negro", "cantidad": 1, "precio": 490, "imagen": "img/bolso1.jpg" }
+      { "nombre": "paca invernal", "cantidad": 1, "precio": 800, "imagen": "img/invierno.jpeg" },
+      { "nombre": "vestido primaveral", "cantidad": 1, "precio": 190, "imagen": "img/vestidofloral.jpg" }
     ]
   }
 ]

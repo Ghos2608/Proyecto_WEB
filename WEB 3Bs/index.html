@@ -14,8 +14,15 @@
     <link href="styles.css" rel="stylesheet">
 
 </head>
-
+<body style="background-image: url('img/paca3b.png'); 
+             background-size: cover; 
+             background-position: center; 
+             background-repeat: no-repeat; 
+             background-attachment: fixed;">
 <body>
+
+    
+
     <!--NAVBAR-->
     <div id="navbar"></div>
 
@@ -24,6 +31,33 @@
         <h1 class="fw-bold text-dark">Bienvenido a Tienda 3Bs</h1>
         <p class="text-muted">Bueno, Bonito y Barato – las mejores prendas para ti.</p>
     </header>
+
+<main>
+    <section class="container my-5 col-md-3 bg-info p-3" >
+        
+        <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner" style="background-color: black;">
+
+            <div class="carousel-item active">
+              <img src="img/paca.jpg" class="d-block w-100" data-bs-interval="2000" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="img/paca1.jpg" class="d-block w-100" data-bs-interval="2000" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="img/bermuda34.jpeg" class="d-block w-100" data-bs-interval="2000" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="img/paca2.jpg" class="d-block w-100" data-bs-interval="2000" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="img/gym.jpeg" class="d-block w-100" data-bs-interval="2000" alt="...">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</main>
 
     <!-- OFERTAS DESTACADAS -->
     <section class="container my-5">
@@ -101,7 +135,6 @@
             .catch(error => console.error("Error al cargar ofertas:", error));
     </script>
 
-    <!-- Cargar Noticias -->
     <script>
         fetch("json/noticias.json")
             .then(response => response.json())
