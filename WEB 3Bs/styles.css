@@ -62,6 +62,11 @@ main {
     color: #ffe4f3;
 }
 
+.banner {
+    width: 100%;           /* Ocupa todo el ancho */
+    height: auto;          /* Ajusta la altura proporcionalmente */
+    display: block;        /* Elimina espacio extra debajo de la imagen */
+}
 
 .card {
     border: none;
