@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1001,
+    "fecha": "2025-10-28",
+    "estado": "Pendiente",
+    "total": 720,
+    "items": [
+      { "nombre": "camisa Nike", "cantidad": 1, "precio": 150, "imagen": "img/rayas.jpeg" },
+      { "nombre": "Pantalón Casual", "cantidad": 1, "precio": 170, "imagen": "img/pantalon28.jpeg" }
+    ]
+  },
+  {
+    "id": 1002,
+    "fecha": "2025-10-15",
+    "estado": "Entregado",
+    "total": 1290,
+    "items": [
+      { "nombre": "paca invernal", "cantidad": 1, "precio": 800, "imagen": "img/invierno.jpeg" },
+      { "nombre": "vestido primaveral", "cantidad": 1, "precio": 190, "imagen": "img/vestidofloral.jpg" }
+    ]
+  }
+]

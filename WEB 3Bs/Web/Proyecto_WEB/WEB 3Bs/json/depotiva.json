@@ -1,0 +1,39 @@
+[
+  {
+    "nombre": "Conjunto Puma",
+    "descripcion": "Conjunto de licra y blusa puma,moderno y ligera.",
+    "precio": 124.99,
+    "imagen": "img/puma.jpeg"
+  },
+  {
+    "nombre": "Conjunto de Shorts Nike",
+    "descripcion": "Juego de shorts deportivos nike de tallas variadas.",
+    "precio": 95.00,
+    "imagen": "img/nikeshort.jpeg"
+  },
+  {
+    "nombre": "Conjunto Nike",
+    "descripcion": "Short nike con sudadera Nike running ligera.",
+    "precio": 599.50,
+    "imagen": "img/conjunto.jpeg"
+  },
+  {
+    "nombre": "Pack Gym Shark",
+    "descripcion": "juego de tops Gym Shark modernos",
+    "precio": 125.00,
+    "imagen": "img/gym.jpeg"
+  },
+  {
+    "nombre": "Conjunto Under Armour",
+    "descripcion": "Short y blusa under armour para ejercicio",
+    "precio": 119.99,
+    "imagen": "img/under.jpeg"
+  },
+  {
+    "nombre": "Conjunto Adidas",
+    "descripcion": "Mayon y blusa marca adidaas perfecta para el ejercico",
+    "precio": 99.99,
+    "imagen": "img/adidas.jpeg"
+  }
+  
+]

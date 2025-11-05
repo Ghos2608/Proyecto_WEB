@@ -1,0 +1,39 @@
+[
+  {
+    "nombre": "Blusa Casual",
+    "descripcion": "Camisa de algodón con corte moderno y ligera.",
+    "precio": 124.99,
+    "imagen": "img/blusacasual.jpeg"
+  },
+  {
+    "nombre": "Vestido Mujer",
+    "descripcion": "Vestido fresco ideal para primavera y verano.",
+    "precio": 95.00,
+    "imagen": "img/vestidofloral.jpg"
+  },
+  {
+    "nombre": "Jeans Azul Clásico",
+    "descripcion": "Pantalón de mezclilla azul ajustado de alta calidad.",
+    "precio": 599.50,
+    "imagen": "img/jeanazul.jpeg"
+  },
+  {
+    "nombre": "Sudadera Unisex",
+    "descripcion": "Sudadera cómoda de algodón con capucha.",
+    "precio": 125.00,
+    "imagen": "img/sudadera.jpeg"
+  },
+  {
+    "nombre": "Short Levi´s casual",
+    "descripcion": "short elegante y resistente para cualquier ocasión.",
+    "precio": 119.99,
+    "imagen": "img/short.jpeg"
+  },
+  {
+    "nombre": "Falda waos Plisada",
+    "descripcion": "Falda ligera y elegante con diseño plisado.",
+    "precio": 99.99,
+    "imagen": "img/falda.jpeg"
+  }
+  
+]

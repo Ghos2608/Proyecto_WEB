@@ -1,0 +1,170 @@
+
+
+:root {
+    --color-primario: #8e24aa;   /* Morado */
+    --color-secundario: #ec407a; /* Rosa */
+    --color-fondo: #f8f9fa;
+    --color-texto: #333;
+}
+
+/* Reset básico */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+/* Contenido flexible */
+main {
+    flex: 1;
+}
+
+
+.navbar {
+    background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: white !important;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffe4f3 !important;
+    transform: scale(1.05);
+}
+
+.navbar-nav .nav-link.active {
+    font-weight: 600;
+    border-bottom: 2px solid white;
+}
+
+/* Ícono de sesión */
+.nav-session {
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    transition: 0.3s;
+}
+
+.nav-session:hover {
+    color: #ffe4f3;
+}
+
+
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(142, 36, 170, 0.2);
+}
+
+.card img {
+    object-fit: cover;
+    height: 250px;
+}
+
+.card-title {
+    color: var(--color-primario);
+    font-weight: 600;
+}
+
+.btn-outline-dark {
+    border-radius: 30px;
+    border-color: var(--color-primario);
+    color: var(--color-primario);
+    transition: all 0.3s;
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--color-primario);
+    color: white;
+}
+
+
+.pedido-card {
+    border-left: 5px solid var(--color-primario);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.pedido-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(142, 36, 170, 0.2);
+}
+
+/* Estado del pedido */
+.estado {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.estado.pendiente {
+    color: orange;
+}
+
+.estado.enviado {
+    color: dodgerblue;
+}
+
+.estado.entregado {
+    color: green;
+}
+
+/* Lista de artículos */
+.pedido-card ul li img {
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.pedido-card .card-title {
+    color: var(--color-primario);
+}
+
+
+footer {
+    background-color: var(--color-primario);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+header.bg-light {
+    background-color: #fdfdfd !important;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+header h1 {
+    color: var(--color-primario);
+}
+
+.text-primary {
+    color: var(--color-primario) !important;
+}
+
+/* Pequeños efectos */
+.shadow-sm {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important;
+}
