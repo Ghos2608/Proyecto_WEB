@@ -10,12 +10,51 @@
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <!-- Estilos personalizados -->
-  <link href="styles.css" rel="stylesheet">
+  <link href="../../public/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
   <!-- NAVBAR -->
-  <div id="navbar"></div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../../index.html">
+                <img src="../../public/img/logo.png" alt="Logo 3Bs" width="40" height="40" class="me-2">
+                <h1 class="text-uppercase fw-bold" style="color: var(--color-secundario);">Tienda 3Bs</h1>
+            </a>
+
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="../../index.html">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="mujerDropdown" data-bs-toggle="dropdown">Mujer</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../views/mujer/casual.html">Ropa Casual</a></li>
+                            <li><a class="dropdown-item" href="../views/mujer/deportiva.html">Ropa Deportiva</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="hombreDropdown" data-bs-toggle="dropdown">Hombre</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../views/hombre/CamisaH.html">Camisas</a></li>
+                            <li><a class="dropdown-item" href="../views/hombre/PantalonesH.html">Pantalones</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="pedidos.html">Pedidos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="administrar.html">Administrar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="informacion.html">Información</a></li>
+                    <li class="nav-item">
+                        <a href="perfil.html" class="nav-session" title="Perfil de Usuario">
+                            <i class="bi bi-person-circle"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
   <!-- ENCABEZADO -->
   <header class="py-5 text-center bg-light shadow-sm">
