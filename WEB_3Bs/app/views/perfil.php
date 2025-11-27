@@ -123,7 +123,7 @@ $rol         = $_SESSION['usuario_rol'];
                 <i class="bi bi-pencil-square"></i> Editar perfil
               </a>
 
-              <a href="../../index.html" class="btn btn-outline-danger w-100">
+              <a href="../controllers/logout.php" class="btn btn-outline-danger w-100">
                 <i class="bi bi-box-arrow-right"></i> Cerrar sesión
               </a>
             </div>
