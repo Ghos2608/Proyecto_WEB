@@ -23,7 +23,7 @@ $rol         = $_SESSION['usuario_rol'];
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="../../public/css/styles.css" rel="stylesheet">
+  <link href="../../../public/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
@@ -31,8 +31,8 @@ $rol         = $_SESSION['usuario_rol'];
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="indexSesion.html">
-                <img src="../../public/img/logo.png" alt="Logo 3Bs" width="40" height="40" class="me-2">
+            <a class="navbar-brand d-flex align-items-center" href="indexSesionAdm.html">
+                <img src="../../../public/img/logo.png" alt="Logo 3Bs" width="40" height="40" class="me-2">
                 <h1 class="text-uppercase fw-bold" style="color: var(--color-secundario);">Tienda 3Bs</h1>
             </a>
 
@@ -42,25 +42,10 @@ $rol         = $_SESSION['usuario_rol'];
 
             <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link" href="indexSesion.html">Inicio</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="mujerDropdown" data-bs-toggle="dropdown">Mujer</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../views/mujer/casual.html">Ropa Casual</a></li>
-                            <li><a class="dropdown-item" href="../views/mujer/deportiva.html">Ropa Deportiva</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="hombreDropdown" data-bs-toggle="dropdown">Hombre</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../views/hombre/CamisaH.html">Camisas</a></li>
-                            <li><a class="dropdown-item" href="../views/hombre/PantalonesH.html">Pantalones</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="pedidos.html">Pedidos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="informacionSesion.html">Información</a></li>
+                    <li class="nav-item"><a class="nav-link" href="indexSesionAdm.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="administrar.html">Administrar</a></li>
                     <li class="nav-item">
-                        <a href="perfil.html" class="nav-session" title="Perfil de Usuario">
+                        <a href="perfilAdm.php" class="nav-session" title="Perfil de Usuario">
                             <i class="bi bi-person-circle"></i>
                         </a>
                     </li>
@@ -122,7 +107,7 @@ $rol         = $_SESSION['usuario_rol'];
                 <i class="bi bi-pencil-square"></i> Editar perfil
               </a>
 
-              <a href="../controllers/logout.php" class="btn btn-outline-danger w-100">
+              <a href="../../controllers/logout.php" class="btn btn-outline-danger w-100">
                 <i class="bi bi-box-arrow-right"></i> Cerrar sesión
               </a>
             </div>
