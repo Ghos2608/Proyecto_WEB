@@ -96,7 +96,14 @@ if ($action === "login") {
         $_SESSION['usuario_direccion'] = $user['direccion'];
         $_SESSION['usuario_rol'] = $user['rol'];
 
-        header("Location: ../views/perfil.php");
+        if ($user['rol'] === 'admin') {
+            header("Location: ../views/admin/administrar.html");
+        }
+        else if ($user['rol'] === 'cliente') {
+            header("Location: ../views/perfil.php");
+        } else {
+            header("Location: ../views/index.html");
+        }
         exit;
 
     } catch (PDOException $e) {
