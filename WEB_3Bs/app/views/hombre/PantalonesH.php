@@ -1,3 +1,18 @@
+<?php
+// ---- CONEXIÓN A LA BD ----
+$conexion = new mysqli("localhost", "root", "", "base_3bs");
+
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+}
+
+// Consulta: obtener productos de la categoría Ropa Casual
+$query = "SELECT nombre, descripcion, precio, imagen FROM productos WHERE categoria = 'Pantalones'";
+$resultado = $conexion->query($query);
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -66,7 +81,27 @@
   <!-- Catálogo -->
   <div class="container my-5">
     <div class="row" id="catalogo">
-      <!-- Aquí se cargan los productos desde JSON -->
+     <?php
+      // Mostrar productos desde la BD
+      if ($resultado->num_rows > 0) {
+        while ($row = $resultado->fetch_assoc()) {
+          echo '
+          <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card h-100 text-center shadow-sm">
+              <img src="../../../public/img/' . $row['imagen'] . '" class="card-img-top" alt="' . $row['nombre'] . '">
+              <div class="card-body">
+                <h5 class="card-title">' . $row['nombre'] . '</h5>
+                <p class="card-text text-muted">' . $row['descripcion'] . '</p>
+                <p class="fw-bold text-primary">$' . $row['precio'] . '</p>
+                <button class="btn btn-outline-dark btn-sm">Comprar</button>
+              </div>
+            </div>
+          </div>';
+        }
+      } else {
+        echo "<p class='text-center text-muted'>No hay productos disponibles.</p>";
+      }
+      ?>
     </div>
   </div>
 
@@ -82,47 +117,7 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Script para cargar productos -->
-  <script>
-    fetch("json/PanH.json")
-      .then(response => response.json())
-      .then(data => {
-        const contenedor = document.getElementById("catalogo");
-        data.forEach(item => {
-          const card = `
-            <div class="col-md-4 col-lg-3 mb-4">
-              <div class="card h-100 text-center">
-                <img src="${item.imagen}" class="card-img-top" alt="${item.nombre}">
-                <div class="card-body">
-                  <h5 class="card-title">${item.nombre}</h5>
-                  <p class="card-text text-muted">${item.descripcion}</p>
-                  <p class="fw-bold text-primary">$${item.precio}</p>
-                  <button class="btn btn-outline-dark btn-sm">Ver más</button>
-                </div>
-              </div>
-            </div>
-          `;
-          contenedor.innerHTML += card;
-        });
-      })
-      .catch(error => console.error("Error al cargar el catálogo:", error));
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        fetch("navbar.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("navbar").innerHTML = data;
-
-                // Resalta el enlace activo según la URL actual
-                const current = window.location.pathname.split("/").pop();
-                document.querySelectorAll(".nav-link").forEach(link => {
-                    if (link.getAttribute("href") === current) {
-                        link.classList.add("active");
-                    }
-                });
-            });
-    });
-    </script>
 </body>
 </html>
+
+<?php $conexion->close(); ?>

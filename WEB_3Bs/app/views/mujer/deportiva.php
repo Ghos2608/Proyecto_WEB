@@ -1,10 +1,23 @@
+<?php
+// ---- CONEXIÓN A LA BD ----
+$conexion = new mysqli("localhost", "root", "", "base_3bs");
+
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+}
+
+// Consulta: obtener productos de la categoría Ropa Casual
+$query = "SELECT nombre, descripcion, precio, imagen FROM productos WHERE categoria = 'Ropa Deportiva'";
+$resultado = $conexion->query($query);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Camisas - Tienda 3Bs</title>
+  <title>Ropa Deportiva - Tienda 3Bs</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -32,17 +45,17 @@
         <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="../indexSesion.html">Inicio</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="mujerDropdown" data-bs-toggle="dropdown">Mujer</a>
+            <a class="nav-link dropdown-toggle active" href="#" id="mujerDropdown" data-bs-toggle="dropdown">Mujer</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="../mujer/casual.php">Ropa Casual</a></li>
-              <li><a class="dropdown-item" href="../mujer/deportiva.php">Ropa Deportiva</a></li>
+              <li><a class="dropdown-item" href="casual.php">Ropa Casual</a></li>
+              <li><a class="dropdown-item active" href="deportiva.php">Ropa Deportiva</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="hombreDropdown" data-bs-toggle="dropdown">Hombre</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item active" href="CamisaH.php">Camisas</a></li>
-              <li><a class="dropdown-item" href="PantalonesH.php">Pantalones</a></li>
+              <li><a class="dropdown-item" href="../hombre/CamisaH.php">Camisas</a></li>
+              <li><a class="dropdown-item" href="../hombre/PantalonesH.php">Pantalones</a></li>
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link" href="../pedidos.html">Pedidos</a></li>
@@ -59,14 +72,36 @@
 
   <!-- TÍTULO -->
   <header class="py-5 text-center bg-light shadow-sm">
-    <h1 class="fw-bold text-dark">Camisas</h1>
-    <p class="text-muted">Camisas de excelente calidad a precios accesibles</p>
+    <h1 class="fw-bold text-dark">Ropa Deportiva</h1>
+    <p class="text-muted">Ropa de paca en excelente estado, perfecta para hacer ejercicio</p>
   </header>
 
   <!-- CATÁLOGO -->
   <div class="container my-5">
     <div class="row" id="catalogo">
-      <!-- Productos generados con JS -->
+
+     <?php
+      // Mostrar productos desde la BD
+      if ($resultado->num_rows > 0) {
+        while ($row = $resultado->fetch_assoc()) {
+          echo '
+          <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card h-100 text-center shadow-sm">
+              <img src="../../../public/img/' . $row['imagen'] . '" class="card-img-top" alt="' . $row['nombre'] . '">
+              <div class="card-body">
+                <h5 class="card-title">' . $row['nombre'] . '</h5>
+                <p class="card-text text-muted">' . $row['descripcion'] . '</p>
+                <p class="fw-bold text-primary">$' . $row['precio'] . '</p>
+                <button class="btn btn-outline-dark btn-sm">Comprar</button>
+              </div>
+            </div>
+          </div>';
+        }
+      } else {
+        echo "<p class='text-center text-muted'>No hay productos disponibles.</p>";
+      }
+      ?>
+
     </div>
   </div>
 
@@ -81,54 +116,8 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Script para generar productos -->
-  <script>
-    const productosCamisas = [
-      {
-        nombre: "Camisa Blanca Clásica",
-        descripcion: "Camisa de algodón 100% para uso casual o formal.",
-        precio: 299,
-        imagen: "public/img/camisaCasual.jpg"
-      },
-      {
-        nombre: "Camisa Azul Marino",
-        descripcion: "Camisa elegante con botones metálicos y corte slim fit.",
-        precio: 349,
-        imagen: "public/img/CamisaAzul.jpg"
-      },
-      {
-        nombre: "Camisa a Cuadros",
-        descripcion: "Perfecta para un look relajado de fin de semana.",
-        precio: 279,
-        imagen: "public/img/CamisaCuadros.jpg"
-      },
-      {
-        nombre: "Camisa Negra Formal",
-        descripcion: "Ideal para eventos y cenas, material premium.",
-        precio: 399,
-        imagen: "public/img/CamisaNegra.jpg"
-      }
-    ];
+ 
 
-    const contenedor = document.getElementById("catalogo");
-
-    productosCamisas.forEach(item => {
-      const card = `
-        <div class="col-md-4 col-lg-3 mb-4">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="${item.imagen}" class="card-img-top" alt="${item.nombre}">
-            <div class="card-body">
-              <h5 class="card-title">${item.nombre}</h5>
-              <p class="card-text text-muted">${item.descripcion}</p>
-              <p class="fw-bold text-primary">$${item.precio}</p>
-              <button class="btn btn-outline-dark btn-sm">Ver más</button>
-            </div>
-          </div>
-        </div>
-      `;
-      contenedor.innerHTML += card;
-    });
-  </script>
 </body>
-
 </html>
+<?php $conexion->close(); ?>
