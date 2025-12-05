@@ -1,26 +1,36 @@
+<?php
+// ---- CONEXIÓN A LA BD ----
+$conexion = new mysqli("localhost", "root", "", "base_3bs");
+
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+}
+
+// Consulta: obtener productos de la categoría Ropa Casual
+$query = "SELECT nombre, descripcion, precio, imagen FROM productos WHERE categoria = 'Ropa Casual'";
+$resultado = $conexion->query($query);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ropa Deportiva - Tienda 3Bs</title>
+  <title>Ropa Casual - Tienda 3Bs</title>
 
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Estilos personalizados -->
   <link href="../../../public/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
+
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="../indexSesion.html">
-        <img src="Img/logo.png" alt="Logo 3Bs" width="40" height="40" class="me-2">
+        <img src="../../../public/img/logo.png" alt="Logo 3Bs" width="40" height="40" class="me-2">
         <h1 class="text-uppercase fw-bold" style="color: var(--color-secundario);">Tienda 3Bs</h1>
       </a>
 
@@ -34,8 +44,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle active" href="#" id="mujerDropdown" data-bs-toggle="dropdown">Mujer</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="casual.php">Ropa Casual</a></li>
-              <li><a class="dropdown-item active" href="deportiva.php">Ropa Deportiva</a></li>
+              <li><a class="dropdown-item active" href="casual.php">Ropa Casual</a></li>
+              <li><a class="dropdown-item" href="deportiva.php">Ropa Deportiva</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -45,8 +55,8 @@
               <li><a class="dropdown-item" href="../hombre/PantalonesH.php">Pantalones</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="../pedidos.html">Pedidos</a></li>
-          <li class="nav-item"><a class="nav-link" href="../informacionSesion.html">Información</a></li>
+          <li class="nav-item"><a class="nav-link" href="../pedidos.php">Pedidos</a></li>
+          <li class="nav-item"><a class="nav-link" href="../informacionSesion.php">Información</a></li>
           <li class="nav-item">
             <a href="../perfil.php" class="nav-session" title="Perfil de Usuario">
               <i class="bi bi-person-circle"></i>
@@ -59,14 +69,36 @@
 
   <!-- TÍTULO -->
   <header class="py-5 text-center bg-light shadow-sm">
-    <h1 class="fw-bold text-dark">Ropa Deportiva</h1>
-    <p class="text-muted">Ropa de paca en excelente estado, perfecta para hacer ejercicio</p>
+    <h1 class="fw-bold text-dark">Ropa Casual</h1>
+    <p class="text-muted">Descubre las últimas tendencias de moda casual</p>
   </header>
 
   <!-- CATÁLOGO -->
   <div class="container my-5">
     <div class="row" id="catalogo">
-      <!-- Productos cargados por script -->
+
+      <?php
+      // Mostrar productos desde la BD
+      if ($resultado->num_rows > 0) {
+        while ($row = $resultado->fetch_assoc()) {
+          echo '
+          <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card h-100 text-center shadow-sm">
+              <img src="../../../public/img/' . $row['imagen'] . '" class="card-img-top" alt="' . $row['nombre'] . '">
+              <div class="card-body">
+                <h5 class="card-title">' . $row['nombre'] . '</h5>
+                <p class="card-text text-muted">' . $row['descripcion'] . '</p>
+                <p class="fw-bold text-primary">$' . $row['precio'] . '</p>
+                <button class="btn btn-outline-dark btn-sm">Comprar</button>
+              </div>
+            </div>
+          </div>';
+        }
+      } else {
+        echo "<p class='text-center text-muted'>No hay productos disponibles.</p>";
+      }
+      ?>
+
     </div>
   </div>
 
@@ -78,57 +110,9 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Script local de productos -->
-  <script>
-    const ropaDeportiva = [
-      {
-        nombre: "Leggings Deportivos",
-        descripcion: "Leggings elásticos de alta resistencia para entrenamiento.",
-        precio: 299,
-        imagen: "Img/LeggingsDeportivos.jpg"
-      },
-      {
-        nombre: "Top Deportivo",
-        descripcion: "Top con soporte medio ideal para yoga y running.",
-        precio: 199,
-        imagen: "Img/TopDeportivo.jpg"
-      },
-      {
-        nombre: "Sudadera Deportiva",
-        descripcion: "Sudadera ligera con cierre y capucha.",
-        precio: 349,
-        imagen: "Img/SudaderaDeportiva.jpg"
-      },
-      {
-        nombre: "Short de Entrenamiento",
-        descripcion: "Short cómodo de tela transpirable para gimnasio o exterior.",
-        precio: 229,
-        imagen: "Img/ShortDeportivo.jpg"
-      }
-    ];
-
-    const contenedor = document.getElementById("catalogo");
-
-    ropaDeportiva.forEach(item => {
-      const card = `
-        <div class="col-md-4 col-lg-3 mb-4">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="${item.imagen}" class="card-img-top" alt="${item.nombre}">
-            <div class="card-body">
-              <h5 class="card-title">${item.nombre}</h5>
-              <p class="card-text text-muted">${item.descripcion}</p>
-              <p class="fw-bold text-primary">$${item.precio}</p>
-              <button class="btn btn-outline-dark btn-sm">Ver más</button>
-            </div>
-          </div>
-        </div>
-      `;
-      contenedor.innerHTML += card;
-    });
-  </script>
 </body>
-
 </html>
+
+<?php $conexion->close(); ?>
