@@ -54,13 +54,14 @@ $resultado = $conexion->query($query);
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="hombreDropdown" data-bs-toggle="dropdown">Hombre</a>
+            <a class="nav-link dropdown-toggle active" href="#" id="hombreDropdown" data-bs-toggle="dropdown">Hombre</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item active" href="CamisaH.php">Camisas</a></li>
               <li><a class="dropdown-item" href="PantalonesH.php">Pantalones</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="../pedidos.html">Pedidos</a></li>
+          <li class="nav-item"><a class="nav-link" href="../carrito/carrito.php">Carrito</a></li>
+          <li class="nav-item"><a class="nav-link" href="../pedidos.php">Pedidos</a></li>
           <li class="nav-item"><a class="nav-link" href="../informacionSesion.html">Información</a></li>
           <li class="nav-item">
             <a href="../perfil.php" class="nav-session" title="Perfil de Usuario">

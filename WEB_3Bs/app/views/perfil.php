@@ -44,23 +44,26 @@ $rol         = $_SESSION['usuario_rol'];
                 <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item"><a class="nav-link" href="indexSesion.html">Inicio</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="mujerDropdown" data-bs-toggle="dropdown">Mujer</a>
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Mujer</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../views/mujer/casual.html">Ropa Casual</a></li>
-                            <li><a class="dropdown-item" href="../views/mujer/deportiva.html">Ropa Deportiva</a></li>
+                            <li><a class="dropdown-item" href="../views/mujer/casual.php">Ropa Casual</a></li>
+                            <li><a class="dropdown-item" href="../views/mujer/deportiva.php">Ropa Deportiva</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="hombreDropdown" data-bs-toggle="dropdown">Hombre</a>
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Hombre</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../views/hombre/CamisaH.html">Camisas</a></li>
-                            <li><a class="dropdown-item" href="../views/hombre/PantalonesH.html">Pantalones</a></li>
+                            <li><a class="dropdown-item" href="../views/hombre/CamisaH.php">Camisas</a></li>
+                            <li><a class="dropdown-item" href="../views/hombre/PantalonesH.php">Pantalones</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="pedidos.html">Pedidos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../views/carrito/carrito.php">Carrito</a></li>
+                    <li class="nav-item">
+                    <li class="nav-item"><a class="nav-link" href="pedidos.php">Pedidos</a></li>
+                    <li class="nav-item">
                     <li class="nav-item"><a class="nav-link" href="informacionSesion.html">Información</a></li>
                     <li class="nav-item">
-                        <a href="perfil.html" class="nav-session" title="Perfil de Usuario">
+                        <a href="perfil.php" class="nav-session" title="Perfil de Usuario">
                             <i class="bi bi-person-circle"></i>
                         </a>
                     </li>
@@ -68,6 +71,7 @@ $rol         = $_SESSION['usuario_rol'];
             </div>
         </div>
     </nav>
+
 
   <!-- ENCABEZADO -->
   <header class="py-5 text-center bg-light shadow-sm">

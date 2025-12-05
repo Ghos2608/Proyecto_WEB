@@ -55,6 +55,7 @@ $resultado = $conexion->query($query);
               <li><a class="dropdown-item" href="../hombre/PantalonesH.php">Pantalones</a></li>
             </ul>
           </li>
+          <li class="nav-item"><a class="nav-link" href="../carrito/carrito.php">Carrito</a></li>
           <li class="nav-item"><a class="nav-link" href="../pedidos.php">Pedidos</a></li>
           <li class="nav-item"><a class="nav-link" href="../informacionSesion.php">Información</a></li>
           <li class="nav-item">

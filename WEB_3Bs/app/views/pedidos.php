@@ -85,20 +85,21 @@ while ($p = $resPedidos->fetch_assoc()) {
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Mujer</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../views/mujer/casual.html">Ropa Casual</a></li>
-                            <li><a class="dropdown-item" href="../views/mujer/deportiva.html">Ropa Deportiva</a></li>
+                            <li><a class="dropdown-item" href="../views/mujer/casual.php">Ropa Casual</a></li>
+                            <li><a class="dropdown-item" href="../views/mujer/deportiva.php">Ropa Deportiva</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Hombre</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../views/hombre/CamisaH.html">Camisas</a></li>
-                            <li><a class="dropdown-item" href="../views/hombre/PantalonesH.html">Pantalones</a></li>
+                            <li><a class="dropdown-item" href="../views/hombre/CamisaH.php">Camisas</a></li>
+                            <li><a class="dropdown-item" href="../views/hombre/PantalonesH.php">Pantalones</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item"><a class="nav-link" href="../views/carrito/carrito.php">Carrito</a></li>
+                    <li class="nav-item">
                     <li class="nav-item"><a class="nav-link active" href="pedidos.php">Pedidos</a></li>
                     <li class="nav-item">
-                    <li><a class="nav-link" href="/Proyecto_WEB/WEB_3Bs/app/views/carrito/carrito.php">Carrito</a></li>
                     <li class="nav-item"><a class="nav-link" href="informacionSesion.html">Información</a></li>
                     <li class="nav-item">
                         <a href="perfil.php" class="nav-session" title="Perfil de Usuario">

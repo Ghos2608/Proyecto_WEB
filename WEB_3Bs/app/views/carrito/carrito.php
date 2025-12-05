@@ -80,12 +80,13 @@ if (!empty($ids)) {
                             <li><a class="dropdown-item" href="../hombre/PantalonesH.php">Pantalones</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link active" href="pedidos.php">Pedidos</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="carrito.php">Carrito</a></li>
-                    <li class="nav-item"><a class="nav-link" href="informacionSesion.html">Información</a></li>
-                    
+                     <li class="nav-item"><a class="nav-link active" href="../views/carrito/carrito.php">Carrito</a></li>
                     <li class="nav-item">
-                        <a href="../perfil.php" class="nav-session" title="Perfil de Usuario">
+                    <li class="nav-item"><a class="nav-link" href="../pedidos.php">Pedidos</a></li>
+                    <li class="nav-item">
+                    <li class="nav-item"><a class="nav-link" href="../informacionSesion.html">Información</a></li>
+                    <li class="nav-item">
+                        <a href="perfil.php" class="nav-session" title="Perfil de Usuario">
                             <i class="bi bi-person-circle"></i>
                         </a>
                     </li>
