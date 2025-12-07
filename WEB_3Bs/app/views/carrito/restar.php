@@ -4,13 +4,13 @@ session_start();
 $id = $_GET["id"];
 
 if (isset($_SESSION["carrito"][$id])) {
-    $_SESSION["carrito"][$id]--;
 
-    // Si la cantidad llega a 0, eliminar producto
-    if ($_SESSION["carrito"][$id] <= 0) {
-        unset($_SESSION["carrito"][$id]);
+    // Si ya está en 1, NO disminuir más
+    if ($_SESSION["carrito"][$id] > 1) {
+        $_SESSION["carrito"][$id]--;
     }
 }
 
 header("Location: " . $_SERVER["HTTP_REFERER"]);
 exit;
+

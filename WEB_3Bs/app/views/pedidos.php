@@ -165,7 +165,10 @@ while ($p = $resPedidos->fetch_assoc()) {
                                 </ul>
 
                                 <div class="text-end">
-                                    <button class="btn btn-outline-dark btn-sm"><i class="bi bi-eye"></i> Ver detalles</button>
+                                    <a href="detalle_pedido.php?id=<?= $pedido['id'] ?>" 
+                                        class="btn btn-outline-dark btn-sm">
+                                        <i class="bi bi-eye"></i> Ver detalles
+                                    </a>
                                 </div>
                             </div>
 

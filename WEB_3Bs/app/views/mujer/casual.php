@@ -7,7 +7,7 @@ if ($conexion->connect_error) {
 }
 
 // Consulta: obtener productos de la categoría Ropa Casual
-$query = "SELECT nombre, descripcion, precio, imagen FROM productos WHERE categoria = 'Ropa Casual'";
+$query = "SELECT id, nombre, descripcion, precio, imagen FROM productos WHERE categoria = 'Ropa Casual' AND genero = 'Mujer'";
 $resultado = $conexion->query($query);
 ?>
 
@@ -90,7 +90,10 @@ $resultado = $conexion->query($query);
                 <h5 class="card-title">' . $row['nombre'] . '</h5>
                 <p class="card-text text-muted">' . $row['descripcion'] . '</p>
                 <p class="fw-bold text-primary">$' . $row['precio'] . '</p>
-                <button class="btn btn-outline-dark btn-sm">Comprar</button>
+                <a href="../carrito/agregar_carrito.php?id=' . $row['id'] . '" 
+                  class="btn btn-outline-dark btn-sm">
+                  <i class="bi bi-cart-plus"></i> Comprar
+                </a>
               </div>
             </div>
           </div>';

@@ -21,11 +21,17 @@ if ($conexion->connect_error) {
     die("Error en la conexión: " . $conexion->connect_error);
 }
 
-// Obtener IDs de productos del carrito
+// Verificar que el usuario existe
+$checkUser = $conexion->query("SELECT id FROM usuarios WHERE id = $usuario_id");
+if ($checkUser->num_rows == 0) {
+    die("ERROR: El usuario no existe en la base de datos.");
+}
+
+// Obtener IDs del carrito
 $ids = array_keys($_SESSION["carrito"]);
 $ids_str = implode(",", $ids);
 
-// Obtener productos para calcular total
+// Obtener productos
 $sql = "SELECT id, precio FROM productos WHERE id IN ($ids_str)";
 $res = $conexion->query($sql);
 
@@ -46,7 +52,11 @@ while ($p = $res->fetch_assoc()) {
     $total += $subtotal;
 }
 
-// Insertar pedido en la tabla pedidos
+if ($total <= 0) {
+    die("ERROR: El total del pedido no es válido.");
+}
+
+// Insertar pedido
 $sqlPedido = "
     INSERT INTO pedidos (id_usuario, fecha_pedido, costo_total)
     VALUES ($usuario_id, NOW(), $total)
@@ -54,27 +64,22 @@ $sqlPedido = "
 
 $conexion->query($sqlPedido);
 
-// ID del pedido creado
+// ID del nuevo pedido
 $id_pedido = $conexion->insert_id;
 
-// Insertar detalles del pedido
+// Insertar detalles
 foreach ($productos as $p) {
-    $id_prod = $p["id"];
-    $cantidad = $p["cantidad"];
-    $subtotal = $p["subtotal"];
-
     $sqlDetalle = "
         INSERT INTO detalles_pedidos (id_pedido, id_producto, cantidad, precio_cantidad)
-        VALUES ($id_pedido, $id_prod, $cantidad, $subtotal)
+        VALUES ($id_pedido, {$p['id']}, {$p['cantidad']}, {$p['subtotal']})
     ";
-
     $conexion->query($sqlDetalle);
 }
 
 // Vaciar carrito
 unset($_SESSION["carrito"]);
 
-// Redirigir a pedidos.php
+// Redirigir
 header("Location: ../pedidos.php");
 exit;
 ?>
