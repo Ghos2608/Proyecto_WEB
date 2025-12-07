@@ -7,7 +7,7 @@ if ($conexion->connect_error) {
 }
 
 // Consulta: obtener productos de la categoría Ropa Casual
-$query = "SELECT nombre, descripcion, precio, imagen FROM productos WHERE categoria = 'Ropa Deportiva' AND genero = 'Mujer'";
+$query = "SELECT id, nombre, descripcion, precio, imagen FROM productos WHERE categoria = 'Ropa Deportiva' AND genero = 'Mujer'";
 $resultado = $conexion->query($query);
 ?>
 
