@@ -15,10 +15,10 @@ if (!isset($_SESSION["carrito"])) {
 }
 
 // Conexión BD
-$conexion = new mysqli("localhost", "root", "", "base_3bs");
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
-}
+include_once "../../helpers/Conexion.php";
+
+$db = new Conexion();
+$conexion = $db->conectar();
 
 // Obtener IDs del carrito
 $ids = array_keys($_SESSION["carrito"]);
@@ -29,7 +29,7 @@ if (!empty($ids)) {
     $consulta = "SELECT * FROM productos WHERE id IN ($ids_str)";
     $resultado = $conexion->query($consulta);
 
-    while ($row = $resultado->fetch_assoc()) {
+    while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
         $productos[] = $row;
     }
 
@@ -38,7 +38,7 @@ if (!empty($ids)) {
     $consultaInv = "SELECT id_producto, cantidad FROM inventario WHERE id_producto IN ($ids_str)";
     $resInv = $conexion->query($consultaInv);
 
-    while ($inv = $resInv->fetch_assoc()) {
+    while ($inv = $resInv->fetch(PDO::FETCH_ASSOC)) {
         $inventario[$inv["id_producto"]] = $inv["cantidad"];
     }
 
@@ -94,7 +94,7 @@ if (!empty($ids)) {
                         </ul>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link active" href="../views/carrito/carrito.php">Carrito</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="carrito.php">Carrito</a></li>
                     <li class="nav-item"><a class="nav-link" href="../pedidos.php">Pedidos</a></li>
                     <li class="nav-item"><a class="nav-link" href="../informacionSesion.html">Información</a></li>
 
@@ -211,14 +211,6 @@ if (!empty($ids)) {
         <?php endif; ?>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="text-center py-3">
-            <p>&copy; 2025 Tienda 3Bs. Todos los derechos reservados.</p>
-            <p>Dirección: Calle Principal #123, Oxkutzcab, Yucatán</p>
-        </div>
-    </footer>
-
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -281,6 +273,14 @@ if (!empty($ids)) {
     <?php endif; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FOOTER -->
+  <footer>
+    <div class="container text-center py-3">
+      <p>&copy; 2025 Tienda 3Bs. Todos los derechos reservados.</p>
+      <p>Dirección: Calle Principal #123, Oxkutzcab, Yucatán | Tel: (999) 123-4567 | Email: contacto@3bs.com</p>
+    </div>
+  </footer>
 
 </body>
 </html>

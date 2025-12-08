@@ -1,10 +1,9 @@
 <?php
 // ---- CONEXIÓN A LA BD ----
-$conexion = new mysqli("localhost", "root", "", "base_3bs");
+include_once "../../helpers/Conexion.php";
 
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
-}
+$db = new Conexion();
+$conexion = $db->conectar();
 
 // Consulta: obtener productos de la categoría Pantalones (Hombre)
 $query = "SELECT id, nombre, descripcion, precio, imagen 
@@ -92,8 +91,10 @@ $resultado = $conexion->query($query);
         <div class="row">
 
             <?php
-            if ($resultado->num_rows > 0) {
-                while ($row = $resultado->fetch_assoc()) {
+            $productos = $resultado->fetchAll(PDO::FETCH_ASSOC);
+
+            if (!empty($productos)) {
+                foreach ($productos as $row) {
                     echo '
                     <div class="col-md-4 col-lg-3 mb-4">
                         <div class="card h-100 text-center shadow-sm">
@@ -144,4 +145,4 @@ $resultado = $conexion->query($query);
 </body>
 </html>
 
-<?php $conexion->close(); ?>
+<php?>

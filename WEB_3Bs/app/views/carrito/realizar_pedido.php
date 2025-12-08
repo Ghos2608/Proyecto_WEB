@@ -16,14 +16,14 @@ if (!isset($_SESSION["carrito"]) || empty($_SESSION["carrito"])) {
 }
 
 // Conexión a BD
-$conexion = new mysqli("localhost", "root", "", "base_3bs");
-if ($conexion->connect_error) {
-    die("Error en la conexión: " . $conexion->connect_error);
-}
+include_once "../../helpers/Conexion.php";
+
+$db = new Conexion();
+$conexion = $db->conectar();
 
 // Verificar que el usuario existe
 $checkUser = $conexion->query("SELECT id FROM usuarios WHERE id = $usuario_id");
-if ($checkUser->num_rows == 0) {
+if ($checkUser->rowCount() == 0) {
     die("ERROR: El usuario no existe en la base de datos.");
 }
 
@@ -38,7 +38,7 @@ $res = $conexion->query($sql);
 $total = 0;
 $productos = [];
 
-while ($p = $res->fetch_assoc()) {
+while ($p = $res->fetch(PDO::FETCH_ASSOC)) {
     $id = $p["id"];
     $cantidad = $_SESSION["carrito"][$id];
     $subtotal = $cantidad * $p["precio"];
@@ -65,7 +65,7 @@ $sqlPedido = "
 $conexion->query($sqlPedido);
 
 // ID del nuevo pedido
-$id_pedido = $conexion->insert_id;
+$id_pedido = $conexion->lastInsertId();
 
 // Insertar detalles
 foreach ($productos as $p) {

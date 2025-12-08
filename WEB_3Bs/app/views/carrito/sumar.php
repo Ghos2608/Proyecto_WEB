@@ -4,16 +4,15 @@ session_start();
 $id = $_GET["id"];
 
 // Conexión BD
-$conexion = new mysqli("localhost", "root", "", "base_3bs");
+include_once "../../helpers/Conexion.php";
 
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
-}
+$db = new Conexion();
+$conexion = $db->conectar();
 
 // Obtener stock del producto
 $sql = "SELECT cantidad FROM inventario WHERE id_producto = $id";
 $res = $conexion->query($sql);
-$inv = $res->fetch_assoc();
+$inv = $res->fetch(PDO::FETCH_ASSOC);
 
 $stockDisponible = $inv["cantidad"];
 

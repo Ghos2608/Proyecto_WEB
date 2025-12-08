@@ -10,10 +10,10 @@ if (!isset($_SESSION["usuario_id"])) {
 $usuario_id = $_SESSION["usuario_id"];
 
 // Conexión a la BD
-$conexion = new mysqli("localhost", "root", "", "base_3bs");
-if ($conexion->connect_error) {
-    die("Error en la conexión: " . $conexion->connect_error);
-}
+include_once "../helpers/Conexion.php";
+
+$db = new Conexion();
+$conexion = $db->conectar();
 
 // 1. Obtener los pedidos del usuario
 $sqlPedidos = "
@@ -27,7 +27,8 @@ $resPedidos = $conexion->query($sqlPedidos);
 $pedidos = [];
 
 // 2. Recorrer los pedidos y obtener sus productos
-while ($p = $resPedidos->fetch_assoc()) {
+while ($p = $resPedidos->fetch(PDO::FETCH_ASSOC)) {
+
 
     $id_pedido = $p["id"];
 
@@ -41,7 +42,8 @@ while ($p = $resPedidos->fetch_assoc()) {
     $resItems = $conexion->query($sqlItems);
 
     $items = [];
-    while ($i = $resItems->fetch_assoc()) {
+    while ($i = $resItems->fetch(PDO::FETCH_ASSOC)) {
+
         $items[] = $i;
     }
 
