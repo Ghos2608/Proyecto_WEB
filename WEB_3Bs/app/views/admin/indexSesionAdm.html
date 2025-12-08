@@ -48,7 +48,45 @@
     <p class="text-muted">Bueno, Bonito y Barato – las mejores prendas para ti.</p>
   </header>
 
-  <img src="../../../public/img/paca3b.jpg" alt="Encabezado" class="banner w-100">
+<!-- CARRUSEL -->
+<div class="d-flex justify-content-center my-4">
+  <div id="carouselInicio" class="carousel slide" data-bs-ride="carousel" style="width: 70%; max-width: 900px;">
+    
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <img src="../../../public/img/ab.jpg" class="d-block custom-carousel-img" alt="Foto 1">
+      </div>
+
+      <div class="carousel-item">
+        <img src="../../../public/img/abc.jpg" class="d-block custom-carousel-img" alt="Foto 2">
+      </div>
+
+      <div class="carousel-item">
+        <img src="../../../public/img/varios.jpg" class="d-block custom-carousel-img" alt="Foto 3">
+      </div>
+
+    </div>
+
+    <!-- Controles -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselInicio" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselInicio" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</div>
+
+<!-- Estilos del carrusel -->
+<style>
+  .custom-carousel-img {
+    width: 100%;
+    height: 300px;        
+    object-fit: cover;    
+    border-radius: 12px;  
+  }
+</style>
 
   <!-- OFERTAS DESTACADAS -->
   <section class="container my-5">
